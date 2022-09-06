@@ -9,10 +9,11 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: false
-      - run:    
-          command:
-            docker build -t myimage:1 .  
-            docker run --network myimage:1 appropriate/curl http://localhost:8080
+      - run:
+         docker build -t myimage:1 .      
+          
+      - run:
+          docker run --network myimage:1 appropriate/curl http://localhost:8080
          
 
 workflows:
