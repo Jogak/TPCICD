@@ -13,7 +13,7 @@ jobs:
          docker build -t myimage:1 .      
           
       - run:
-          docker run --network myimage:1 appropriate/curl http://localhost:8080
+          docker run --network container:myimage curl --retry-connrefused http://localhost:8080
          
 
 workflows:
