@@ -10,9 +10,9 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: false
       - run:
-          docker build -t myimage:1 .      
+          docker build -t myimage .      
       - run:
-          docker run -d -p 8080:8080 --name myimage 1
+          docker run -d -p 8080:8080 --name node-sample myimage
       - run:
           name: "test 8080 port"
           command: "docker run --network container:myimage appropriate/curl --retry 10 --retry-connrefused http://localhost:8080"
