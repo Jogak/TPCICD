@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:          
         
-          docker build -t myimage:1 .
+          sudo docker build -t myimage:1 .
          
 
 workflows:
