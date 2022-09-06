@@ -1,9 +1,16 @@
-version: 1.0
-jobs:
-  build:
-    steps:
+version: 2.1
 
-      # build and push Docker image
-      - run: |
-          docker build -t myimage:1
-          docker push myimage:1
+jobs:
+  # Job one with a unique name
+  on_build:
+    docker:
+      - image: node:latest
+    steps:
+      - run: docker build -t myimage:1 .
+
+workflows:
+  # Name of workflow
+  builds:
+    # List of jobs that will run
+    jobs:
+      - on_build
