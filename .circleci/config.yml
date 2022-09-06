@@ -8,7 +8,7 @@ jobs:
     steps:
       - run: 
          checkout
-         setup_remote_docker
+         
          docker build -t myimage:1 .
 
 workflows:
