@@ -15,8 +15,7 @@ jobs:
           docker run -d -p 8080:8080 --name node-sample myimage
       - run:
           name: "test 8080 port"
-          command: "docker run --network container:myimage appropriate/curl --retry 10 --retry-connrefused http://localhost:8080"
-         
+          command: "docker run --network container:node-sample appropriate/curl --retry 10 --retry-connrefused http://localhost:8080"
 
 workflows:
   # Name of workflow
