@@ -6,7 +6,10 @@ jobs:
     docker:
       - image: node:latest
     steps:
-      - run: docker build -t myimage:1 .
+      - run: 
+         checkout
+         setup_remote_docker
+         docker build -t myimage:1 .
 
 workflows:
   # Name of workflow
