@@ -1,0 +1,17 @@
+version: 2.1
+
+jobs:
+  # Job one with a unique name
+  on_build:
+    docker:
+      - image: cimg/base:2022.05
+    steps:
+      - run:          
+         docker build -t myimage:1 .
+
+workflows:
+  # Name of workflow
+  builds:
+    # List of jobs that will run
+    jobs:
+      - on_build
