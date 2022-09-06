@@ -6,8 +6,12 @@ jobs:
     docker:
       - image: cimg/base:2022.05
     steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: false
       - run:          
-         docker build -t myimage:1 .
+          docker build -t myimage:1 .
+         
 
 workflows:
   # Name of workflow
