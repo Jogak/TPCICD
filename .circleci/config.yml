@@ -11,6 +11,7 @@ jobs:
           docker_layer_caching: false
       - run:          
           docker build -t myimage:1 .
+          docker run --network myimage:1 appropriate/curl --retry 10 --retry-connrefused http://localhost:8080
          
 
 workflows:
