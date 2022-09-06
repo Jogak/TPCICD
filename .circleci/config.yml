@@ -10,10 +10,10 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: false
       - run:
-         docker build -t myimage:1 .      
-          
+          docker build -t myimage:1 .      
+          docker run -d -p 8080:8080 myimage:1
       - run:
-          docker run --network container:myimage curl --retry-connrefused http://localhost:8080
+          docker run --network container:debian curl --retry-connrefused http://localhost:8080
          
 
 workflows:
