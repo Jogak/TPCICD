@@ -8,6 +8,7 @@ jobs:
     steps:
       - run:          
          docker build -t myimage:1 .
+         ls
 
 workflows:
   # Name of workflow
