@@ -12,9 +12,10 @@ jobs:
       - run:
           docker build -t myimage:1 .      
       - run:
-          docker run -d -p 8080:8080 myimage:1
+          docker run -d -p 8080:8080 --name myimage 1
       - run:
-          docker run --network container:debian curl --retry-connrefused http://localhost:8080
+          name: "test 8080 port"
+          command: "docker run --network container:myimage appropriate/curl --retry 10 --retry-connrefused http://localhost:8080"
          
 
 workflows:
